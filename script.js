@@ -1,48 +1,9 @@
 // Minimalistic Portfolio JavaScript - Essential functionality only
 
 document.addEventListener('DOMContentLoaded', function() {
-    initThemeToggle();
     initSmoothScrolling();
     initEmailCopy();
 });
-
-// ===== THEME TOGGLE FUNCTIONALITY =====
-function initThemeToggle() {
-    const themeToggle = document.getElementById('theme-toggle');
-    const themeIcon = document.getElementById('theme-icon');
-    const body = document.body;
-
-    // Check for saved theme preference or default to light mode
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    
-    // Apply theme
-    function applyTheme(theme) {
-        if (theme === 'dark') {
-            body.setAttribute('data-theme', 'dark');
-            themeIcon.textContent = '☀️';
-        } else {
-            body.setAttribute('data-theme', 'light');
-            themeIcon.textContent = '🌙';
-        }
-    }
-
-    // Toggle theme
-    function toggleTheme() {
-        const currentTheme = body.getAttribute('data-theme') || 'light';
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        
-        applyTheme(newTheme);
-        localStorage.setItem('theme', newTheme);
-    }
-
-    // Initialize theme
-    applyTheme(savedTheme);
-    
-    // Event listener
-    if (themeToggle) {
-        themeToggle.addEventListener('click', toggleTheme);
-    }
-}
 
 // ===== SMOOTH SCROLLING =====
 function initSmoothScrolling() {
@@ -104,4 +65,4 @@ function initEmailCopy() {
 }
 
 // ===== CONSOLE MESSAGE =====
-console.log('%c🎉 Minimalistic Portfolio by Tygo Zijlstra 🎉', 'color: #333; font-size: 16px; font-weight: bold;');
+console.log('Portfolio by Tygo Zijlstra', 'color: #333; font-size: 16px; font-weight: bold;');
