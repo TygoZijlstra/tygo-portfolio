@@ -1,11 +1,9 @@
-// Minimalistic Portfolio JavaScript - Essential functionality only
-
 document.addEventListener('DOMContentLoaded', function() {
     initSmoothScrolling();
     initEmailCopy();
 });
 
-// ===== SMOOTH SCROLLING =====
+//SMOOTH SCROLLING
 function initSmoothScrolling() {
     const navLinks = document.querySelectorAll('.nav-link');
     
@@ -26,7 +24,7 @@ function initSmoothScrolling() {
     });
 }
 
-// ===== EMAIL COPY FUNCTIONALITY =====
+//EMAIL COPY FUNCTIONALITY
 function initEmailCopy() {
     const emailCopyBtn = document.getElementById('email-copy');
     const emailNotification = document.getElementById('email-notification');
@@ -64,5 +62,7 @@ function initEmailCopy() {
     }
 }
 
-// ===== CONSOLE MESSAGE =====
-console.log('Portfolio by Tygo Zijlstra', 'color: #333; font-size: 16px; font-weight: bold;');
+// YEAR
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
