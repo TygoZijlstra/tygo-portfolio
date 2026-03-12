@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     initSmoothScrolling();
     initEmailCopy();
+    initScrollAnimations();
 });
 
 //SMOOTH SCROLLING
@@ -62,5 +63,34 @@ function initEmailCopy() {
     }
 }
 
+// SCROLL ANIMATIONS (IntersectionObserver)
+function initScrollAnimations() {
+    // Convert header .anim elements (with delays) stay as CSS animations.
+    // For elements below the fold, use IntersectionObserver for scroll-triggered animations.
+    const scrollElements = document.querySelectorAll('section .anim');
+
+    scrollElements.forEach(el => {
+        // Remove the CSS animation (those are for header only)
+        el.style.animation = 'none';
+        el.classList.add('anim-scroll');
+        el.classList.remove('anim');
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.15
+    });
+
+    document.querySelectorAll('.anim-scroll').forEach(el => {
+        observer.observe(el);
+    });
+}
+
 // YEAR
-  document.getElementById("year").textContent = new Date().getFullYear();
+document.getElementById("year").textContent = new Date().getFullYear();
